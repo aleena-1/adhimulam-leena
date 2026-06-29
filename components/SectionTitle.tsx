@@ -13,7 +13,7 @@ export default function SectionTitle({ eyebrow, title, align = "left" }: Section
     <motion.div
       initial={{ opacity: 0, y: 26 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-120px" }}
+      viewport={{ once: false, margin: "-120px" }}
       transition={{ duration: 0.7, ease: "easeOut" }}
       className={align === "center" ? "mx-auto max-w-3xl text-center" : "max-w-3xl"}
     >

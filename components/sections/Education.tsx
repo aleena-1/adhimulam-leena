@@ -15,7 +15,7 @@ export default function Education() {
             key={item.institution}
             initial={{ opacity: 0, x: -26 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-120px" }}
+            viewport={{ once: false, margin: "-120px" }}
             transition={{ duration: 0.65, delay: index * 0.08, ease: "easeOut" }}
             className="glass-panel grid gap-5 p-6 sm:grid-cols-[auto_1fr_auto] sm:items-center"
           >

@@ -16,7 +16,7 @@ export default function Achievements() {
               key={item}
               initial={{ opacity: 0, x: 24 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-120px" }}
+              viewport={{ once: false, margin: "-120px" }}
               transition={{ duration: 0.62, delay: index * 0.06, ease: "easeOut" }}
               className="glass-panel flex gap-4 p-5"
             >

@@ -32,13 +32,6 @@ export default function Navbar() {
           ))}
         </div>
 
-        <a
-          href={`mailto:${portfolio.email}`}
-          className="hidden border border-cyanline/50 px-5 py-3 text-xs font-bold uppercase tracking-[0.22em] text-cyanline transition hover:bg-cyanline hover:text-void lg:inline-flex"
-        >
-          Contact
-        </a>
-
         <button
           aria-label="Toggle navigation menu"
           onClick={() => setIsOpen((value) => !value)}

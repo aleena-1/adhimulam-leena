@@ -14,7 +14,7 @@ export default function Skills() {
             key={group}
             initial={{ opacity: 0, y: 28 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-120px" }}
+            viewport={{ once: false, margin: "-120px" }}
             transition={{ duration: 0.65, delay: index * 0.06, ease: "easeOut" }}
             className="glass-panel p-6"
           >

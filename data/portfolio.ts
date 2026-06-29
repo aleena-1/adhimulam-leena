@@ -4,7 +4,13 @@ export const portfolio = {
   role: "Computer Science Engineering Student | Full Stack Developer | AI & Cybersecurity Enthusiast",
   description:
     "Building intelligent, scalable, and secure digital systems across full-stack development, AI, cybersecurity, and distributed computing.",
+  portrait: {
+    src: "",
+    alt: "Portrait of Adhimulam Leena",
+  },
   email: "officialeenaa@gmail.com",
+  phone: "+91 97052 48450",
+  resume: "/resume.pdf",
   links: {
     github: "https://github.com/aleena-1",
     linkedin: "https://www.linkedin.com/in/leena-adhimulam-7196b535a/",
@@ -52,6 +58,7 @@ export const portfolio = {
     {
       title: "PredictMaint",
       github: "https://github.com/aleena-1/PredictMaint",
+      demo: "https://predictmaint-mk16.onrender.com",
       description:
         "AI-powered predictive maintenance platform for monitoring equipment health and forecasting failures.",
       stack: ["AI", "Predictive Analytics", "Equipment Monitoring"],

@@ -16,7 +16,7 @@ export default function Experience() {
               key={`${item.company}-${item.role}`}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-120px" }}
+              viewport={{ once: false, margin: "-120px" }}
               transition={{ duration: 0.7, delay: index * 0.08, ease: "easeOut" }}
               className="glass-panel p-6 sm:p-8"
             >

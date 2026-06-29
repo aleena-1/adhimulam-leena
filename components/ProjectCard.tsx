@@ -19,7 +19,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
     <motion.article
       initial={{ opacity: 0, y: 34 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-100px" }}
+      viewport={{ once: false, margin: "-100px" }}
       transition={{ duration: 0.65, delay: index * 0.08, ease: "easeOut" }}
       className="group relative overflow-hidden border border-white/10 bg-white/[0.045] p-6 backdrop-blur-xl transition hover:-translate-y-1 hover:border-cyanline/60 hover:shadow-glow"
     >
