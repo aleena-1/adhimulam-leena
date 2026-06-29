@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+  background:
+    linear-gradient(rgba(32, 231, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(32, 231, 255, 0.035) 1px, transparent 1px),
+    radial-gradient(circle at 20% 0%, rgba(32, 231, 255, 0.18), transparent 34rem),
+    radial-gradient(circle at 80% 10%, rgba(155, 92, 255, 0.16), transparent 34rem),
+    #05070f;
+  background-size: 74px 74px, 74px 74px, auto, auto, auto;
+  color: white;
+}
+
+::selection {
+  background: rgba(32, 231, 255, 0.35);
+  color: white;
+}
+
+.section-shell {
+  position: relative;
+  margin: 0 auto;
+  max-width: 80rem;
+  padding: 7rem 1.25rem;
+}
+
+@media (min-width: 640px) {
+  .section-shell {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+.glass-panel {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.075), rgba(255, 255, 255, 0.025));
+  backdrop-filter: blur(22px);
+}
+
+.command-card-grid {
+  background-image:
+    linear-gradient(rgba(32, 231, 255, 0.12) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(155, 92, 255, 0.1) 1px, transparent 1px);
+  background-size: 26px 26px;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+.noise-overlay::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.18;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.2) 0.6px, transparent 0.6px);
+  background-size: 6px 6px;
+  mask-image: linear-gradient(to bottom, black, transparent);
+}
