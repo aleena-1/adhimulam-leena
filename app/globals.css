@@ -17,13 +17,7 @@ html {
 body {
   min-height: 100vh;
   overflow-x: hidden;
-  background:
-    linear-gradient(rgba(32, 231, 255, 0.035) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(32, 231, 255, 0.035) 1px, transparent 1px),
-    radial-gradient(circle at 20% 0%, rgba(32, 231, 255, 0.18), transparent 34rem),
-    radial-gradient(circle at 80% 10%, rgba(155, 92, 255, 0.16), transparent 34rem),
-    #05070f;
-  background-size: 74px 74px, 74px 74px, auto, auto, auto;
+  background: #05070a;
   color: white;
 }
 
@@ -39,6 +33,115 @@ body {
   padding: 7rem 1.25rem;
 }
 
+.section-shell::before {
+  content: "";
+  position: absolute;
+  left: 1.25rem;
+  right: 1.25rem;
+  top: 0;
+  height: 1px;
+  opacity: 0.5;
+  background: linear-gradient(90deg, transparent, rgba(32, 231, 255, 0.28), rgba(155, 92, 255, 0.22), transparent);
+  filter: blur(0.2px);
+}
+
+.site-galaxy-backdrop {
+  --mx: 0;
+  --my: 0;
+  --scroll: 0;
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+  background: #05070a;
+  contain: layout paint;
+}
+
+.site-galaxy-backdrop > div {
+  position: absolute;
+  inset: 0;
+  will-change: transform, opacity;
+  transform: translate3d(0, 0, 0);
+}
+
+.bg-base-layer {
+  background:
+    radial-gradient(circle at 20% 8%, rgba(32, 231, 255, 0.08), transparent 28rem),
+    radial-gradient(circle at 80% 90%, rgba(155, 92, 255, 0.07), transparent 32rem),
+    linear-gradient(180deg, #05070a 0%, #060817 48%, #04050b 100%);
+  transform: translate3d(calc(var(--mx) * 2px), calc((var(--my) * 2px) + (var(--scroll) * -18px)), 0);
+}
+
+.bg-glow-layer {
+  inset: -18%;
+  opacity: 0.72;
+  mix-blend-mode: screen;
+  filter: blur(4px);
+  background:
+    radial-gradient(circle at 18% 20%, rgba(32, 231, 255, 0.18), transparent 22rem),
+    radial-gradient(circle at 84% 76%, rgba(155, 92, 255, 0.16), transparent 28rem),
+    radial-gradient(circle at 50% 48%, rgba(255, 255, 255, 0.055), transparent 18rem);
+  animation: ambient-glow-float 24s ease-in-out infinite alternate;
+  transform: translate3d(calc(var(--mx) * 2px), calc((var(--my) * 2px) + (var(--scroll) * -22px)), 0);
+}
+
+.bg-grid-layer {
+  inset: -18% -8%;
+  opacity: 0.22;
+  background-image:
+    linear-gradient(rgba(32, 231, 255, 0.09) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(32, 231, 255, 0.065) 1px, transparent 1px);
+  background-size: 84px 84px;
+  mask-image: linear-gradient(to bottom, transparent, black 16%, black 72%, transparent);
+  transform-origin: center top;
+  transform: perspective(900px) rotateX(58deg) translate3d(calc(var(--mx) * 5px), calc((var(--my) * 5px) + (var(--scroll) * -70px)), 0);
+  animation: premium-grid-crawl 34s linear infinite;
+}
+
+.bg-particle-layer {
+  inset: -12%;
+  opacity: 0.54;
+  background-image:
+    radial-gradient(circle, rgba(255, 255, 255, 0.95) 0 0.8px, transparent 1.4px),
+    radial-gradient(circle, rgba(32, 231, 255, 0.7) 0 1px, transparent 1.8px),
+    radial-gradient(circle, rgba(155, 92, 255, 0.58) 0 1.2px, transparent 2px),
+    radial-gradient(circle, rgba(255, 255, 255, 0.42) 0 1.6px, transparent 2.6px);
+  background-size: 150px 150px, 230px 230px, 310px 310px, 420px 420px;
+  background-position: 0 0, 42px 70px, 120px 24px, 210px 140px;
+  animation:
+    premium-particle-float 48s linear infinite,
+    galaxy-star-twinkle 5.4s ease-in-out infinite;
+  transform: translate3d(calc(var(--mx) * 10px), calc((var(--my) * 10px) + (var(--scroll) * -48px)), 0);
+}
+
+.bg-beam-layer {
+  inset: -20%;
+  opacity: 0.2;
+  mix-blend-mode: screen;
+  background:
+    linear-gradient(112deg, transparent 8%, rgba(32, 231, 255, 0.16) 28%, transparent 47%),
+    linear-gradient(68deg, transparent 38%, rgba(155, 92, 255, 0.13) 54%, transparent 72%);
+  filter: blur(18px);
+  animation: ambient-beam-drift 28s ease-in-out infinite alternate;
+  transform: translate3d(calc(var(--mx) * 15px), calc((var(--my) * 15px) + (var(--scroll) * -36px)), 0);
+}
+
+.bg-noise-layer {
+  opacity: 0.025;
+  background-image:
+    radial-gradient(rgba(255, 255, 255, 0.9) 0.5px, transparent 0.5px),
+    radial-gradient(rgba(255, 255, 255, 0.55) 0.5px, transparent 0.5px);
+  background-size: 5px 5px, 7px 7px;
+  background-position: 0 0, 2px 3px;
+}
+
+.bg-vignette-layer {
+  background:
+    radial-gradient(circle at center, transparent 28%, rgba(0, 0, 0, 0.45) 100%),
+    linear-gradient(to bottom, rgba(5, 7, 10, 0.12), rgba(5, 7, 10, 0.42));
+}
+
 @media (min-width: 640px) {
   .section-shell {
     padding-left: 2rem;
@@ -47,9 +150,29 @@ body {
 }
 
 .glass-panel {
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.075), rgba(255, 255, 255, 0.025));
-  backdrop-filter: blur(22px);
+  border: 1px solid rgba(32, 231, 255, 0.13);
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.026)),
+    radial-gradient(circle at 18% 0%, rgba(32, 231, 255, 0.08), transparent 16rem);
+  backdrop-filter: blur(24px) saturate(130%);
+  box-shadow:
+    0 18px 60px rgba(0, 0, 0, 0.34),
+    0 0 0 1px rgba(255, 255, 255, 0.035),
+    0 0 36px rgba(32, 231, 255, 0.06);
+  transition:
+    transform 260ms ease,
+    box-shadow 260ms ease,
+    border-color 260ms ease,
+    background 260ms ease;
+}
+
+.glass-panel:hover {
+  border-color: rgba(32, 231, 255, 0.28);
+  box-shadow:
+    0 26px 80px rgba(0, 0, 0, 0.42),
+    0 0 0 1px rgba(32, 231, 255, 0.1),
+    0 0 46px rgba(32, 231, 255, 0.12),
+    0 0 60px rgba(155, 92, 255, 0.08);
 }
 
 .command-card-grid {
@@ -72,4 +195,179 @@ body {
   background-image: radial-gradient(rgba(255, 255, 255, 0.2) 0.6px, transparent 0.6px);
   background-size: 6px 6px;
   mask-image: linear-gradient(to bottom, black, transparent);
+}
+
+.cyber-hero-grid {
+  background-image:
+    linear-gradient(rgba(32, 231, 255, 0.09) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(32, 231, 255, 0.07) 1px, transparent 1px),
+    linear-gradient(rgba(155, 92, 255, 0.08) 1px, transparent 1px),
+    radial-gradient(circle at 50% 25%, rgba(32, 231, 255, 0.18), transparent 26rem);
+  background-position: 0 0, 0 0, 0 0, center;
+  background-size: 72px 72px, 72px 72px, 18px 18px, auto;
+  animation: cyber-grid-drift 20s linear infinite;
+}
+
+.particle-field {
+  opacity: 0.55;
+  background-image:
+    radial-gradient(circle, rgba(32, 231, 255, 0.85) 0 1px, transparent 1.6px),
+    radial-gradient(circle, rgba(155, 92, 255, 0.75) 0 1px, transparent 1.8px),
+    radial-gradient(circle, rgba(255, 255, 255, 0.48) 0 0.8px, transparent 1.5px);
+  background-position: 0 0, 32px 44px, 80px 20px;
+  background-size: 150px 150px, 220px 220px, 310px 310px;
+  animation: particle-float 26s linear infinite;
+}
+
+.profile-tilt-card {
+  transform-style: preserve-3d;
+  box-shadow:
+    0 0 0 1px rgba(32, 231, 255, 0.22),
+    0 28px 90px rgba(32, 231, 255, 0.18),
+    0 20px 70px rgba(155, 92, 255, 0.14);
+}
+
+.profile-tilt-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(115deg, transparent 20%, rgba(255, 255, 255, 0.18), transparent 42%);
+  transform: translateX(-120%);
+  transition: transform 700ms ease;
+}
+
+.profile-tilt-card:hover::after {
+  transform: translateX(120%);
+}
+
+@keyframes cyber-grid-drift {
+  from {
+    background-position: 0 0, 0 0, 0 0, center;
+  }
+  to {
+    background-position: 72px 72px, 72px 72px, 18px 18px, center;
+  }
+}
+
+@keyframes particle-float {
+  from {
+    background-position: 0 0, 32px 44px, 80px 20px;
+  }
+  to {
+    background-position: 150px -150px, -188px 264px, 390px -290px;
+  }
+}
+
+@keyframes galaxy-star-drift {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-120px, 160px, 0);
+  }
+}
+
+@keyframes premium-grid-crawl {
+  from {
+    background-position: 0 0, 0 0;
+  }
+  to {
+    background-position: 84px 168px, 84px 168px;
+  }
+}
+
+@keyframes premium-particle-float {
+  from {
+    background-position: 0 0, 42px 70px, 120px 24px, 210px 140px;
+  }
+  to {
+    background-position: 150px -180px, -188px 270px, 430px -320px, -210px 520px;
+  }
+}
+
+@keyframes ambient-glow-float {
+  from {
+    transform: translate3d(calc(var(--mx) * 2px), calc((var(--my) * 2px) + (var(--scroll) * -22px)), 0) scale(1);
+  }
+  to {
+    transform: translate3d(calc((var(--mx) * 2px) + 22px), calc((var(--my) * 2px) - 18px + (var(--scroll) * -22px)), 0) scale(1.06);
+  }
+}
+
+@keyframes ambient-beam-drift {
+  from {
+    transform: translate3d(calc(var(--mx) * 15px), calc((var(--my) * 15px) + (var(--scroll) * -36px)), 0) rotate(-2deg);
+  }
+  to {
+    transform: translate3d(calc((var(--mx) * 15px) - 32px), calc((var(--my) * 15px) + 28px + (var(--scroll) * -36px)), 0) rotate(3deg);
+  }
+}
+
+@keyframes galaxy-star-twinkle {
+  0%,
+  100% {
+    opacity: 0.34;
+    filter: brightness(0.85);
+  }
+  18% {
+    opacity: 0.78;
+    filter: brightness(1.35);
+  }
+  42% {
+    opacity: 0.48;
+    filter: brightness(0.95);
+  }
+  67% {
+    opacity: 0.92;
+    filter: brightness(1.6);
+  }
+  84% {
+    opacity: 0.55;
+    filter: brightness(1.05);
+  }
+}
+
+@media (max-width: 900px) {
+  .bg-grid-layer {
+    opacity: 0.15;
+  }
+
+  .bg-particle-layer {
+    opacity: 0.38;
+    background-size: 210px 210px, 330px 330px, 440px 440px, 560px 560px;
+  }
+
+  .bg-beam-layer {
+    opacity: 0.14;
+  }
+}
+
+@media (max-width: 640px) {
+  .bg-grid-layer {
+    animation-duration: 52s;
+    opacity: 0.1;
+  }
+
+  .bg-particle-layer {
+    opacity: 0.22;
+    animation-duration: 76s;
+  }
+
+  .bg-beam-layer {
+    animation: none;
+    opacity: 0.1;
+  }
+
+  .site-galaxy-backdrop {
+    contain: strict;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-galaxy-backdrop *,
+  .cyber-hero-grid,
+  .particle-field {
+    animation: none !important;
+  }
 }

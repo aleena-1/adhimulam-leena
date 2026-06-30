@@ -5,7 +5,7 @@ export const portfolio = {
   description:
     "Building intelligent, scalable, and secure digital systems across full-stack development, AI, cybersecurity, and distributed computing.",
   portrait: {
-    src: "",
+    src: "/portrait.jpg",
     alt: "Portrait of Adhimulam Leena",
   },
   email: "officialeenaa@gmail.com",
@@ -99,11 +99,11 @@ export const portfolio = {
 };
 
 export const navItems = [
+  { label: "Home", href: "#home" },
   { label: "About", href: "#about" },
-  { label: "Education", href: "#education" },
-  { label: "Experience", href: "#experience" },
-  { label: "Projects", href: "#projects" },
   { label: "Skills", href: "#skills" },
-  { label: "Research", href: "#research" },
+  { label: "Projects", href: "#projects" },
+  { label: "Experience", href: "#experience" },
+  { label: "Interactive ✨", href: "#interactive" },
   { label: "Contact", href: "#contact" },
 ];
